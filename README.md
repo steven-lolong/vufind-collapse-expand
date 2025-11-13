@@ -1,0 +1,2 @@
+# VuFindCollapseExpand module for VuFind
+This module is based on the [vufind-result-grouping module by FINC](https://git.sc.uni-leipzig.de/ubl/finc/packages/vufind-results-grouping/). It uses [Apache Solr's Collapse and Expand Results](https://solr.apache.org/guide/solr/latest/query-guide/collapse-and-expand-results.html) instead of [Result Grouping](https://solr.apache.org/guide/solr/latest/query-guide/result-grouping.html).
