@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Code module for result list grouping in VuFind.
  *
@@ -24,6 +25,7 @@
  * @author   Dorian Merz <merz@ub.uni-leipzig.de>
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  */
+
 namespace VuFindCollapseExpand;
 
 use Laminas\ModuleManager\ModuleManager;
@@ -69,7 +71,6 @@ class Module
      *
      * @param ModuleManager $m Module manager
      *
-     * @return void
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function init(ModuleManager $m)
