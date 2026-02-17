@@ -212,9 +212,6 @@ trait ParamsTrait
             $backendParams->add('sort', $this->normalizeSort($sort));
         }
 
-        // Highlighting disabled
-        $backendParams->add('hl', 'false');
-
         // Pivot facets for visual results
 
         if ($pf = $this->getPivotFacets()) {

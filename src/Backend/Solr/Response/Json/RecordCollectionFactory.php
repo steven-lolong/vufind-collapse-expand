@@ -73,6 +73,7 @@ class RecordCollectionFactory extends \VuFindSearch\Backend\Solr\Response\Json\R
 
         $collection = new $this->collectionClass($response);
         $collectionHasGroups = $collection->hasExpanded();
+        $hlDetails = $response['highlighting'] ?? [];
 
         if (true === $collectionHasGroups) {
             if (isset($response['response']['docs'])) {
@@ -87,6 +88,12 @@ class RecordCollectionFactory extends \VuFindSearch\Backend\Solr\Response\Json\R
 
                         foreach ($response['expanded'][$doc[$this->expandFieldName]]['docs'] as $sub_doc) {
                             $sub_doc['_isSubRecord'] = true;
+
+                            // If highlighting details were provided, merge them into the record for future use:
+                            if (isset($sub_doc['id']) && ($hl = $hlDetails[$sub_doc['id']] ?? [])) {
+                                $sub_doc['__highlight_details'] = $hl;
+                            }
+
                             $collectionSub->add(call_user_func($this->recordFactory, $sub_doc));
                             if (array_key_exists('topic', $sub_doc) && is_array($sub_doc['topic'])) {
                                 $topics = array_merge($topics, $sub_doc['topic']);
@@ -95,8 +102,16 @@ class RecordCollectionFactory extends \VuFindSearch\Backend\Solr\Response\Json\R
                         $docFirst['topic'] = array_unique($topics);
                         $docFirst['_subRecords'] = $collectionSub;
 
+                        // If highlighting details were provided, merge them into the record for future use:
+                        if (isset($docFirst['id']) && ($hl = $hlDetails[$docFirst['id']] ?? [])) {
+                            $docFirst['__highlight_details'] = $hl;
+                        }
                         $collection->add(call_user_func($this->recordFactory, $docFirst));
                     } else {
+                        // If highlighting details were provided, merge them into the record for future use:
+                        if (isset($doc['id']) && ($hl = $hlDetails[$doc['id']] ?? [])) {
+                            $doc['__highlight_details'] = $hl;
+                        }
                         $collection->add(call_user_func($this->recordFactory, $doc));
                     }
                 }
@@ -104,6 +119,10 @@ class RecordCollectionFactory extends \VuFindSearch\Backend\Solr\Response\Json\R
         } else {
             if (isset($response['response']['docs'])) {
                 foreach ($response['response']['docs'] as $doc) {
+                    // If highlighting details were provided, merge them into the record for future use:
+                    if (isset($doc['id']) && ($hl = $hlDetails[$doc['id']] ?? [])) {
+                        $doc['__highlight_details'] = $hl;
+                    }
                     $collection->add(call_user_func($this->recordFactory, $doc));
                 }
             }
