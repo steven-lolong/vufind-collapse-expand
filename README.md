@@ -73,7 +73,10 @@ Here is the step by step to enable this module:
     Add the mixin to your custom theme by referencing it in your `theme.config.php`:
     `'mixins' => ['vufind-collapse-expand']`
 
-    The following points contain information about how to include certain snippets, you might as well also extend/override them in your own theme if necessary.
+    Experimental: The corresponding folder should be auto-created during composer installation, but if they are missing, just copy them manually from or create a symlink to:
+    `vendor/ubtue/vufind-collapse-expand/res/theme` => `themes/vufind-collapse-expand`
+
+    The following sections contain information about how to include certain snippets. You might as well also extend/override them in your own theme if necessary.
 
     **Checkbox**
 
