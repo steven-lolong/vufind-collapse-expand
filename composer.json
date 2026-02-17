@@ -1,9 +1,42 @@
 {
     "name": "ubtue/vufind-collapse-expand",
     "description": "Adding Solr Collapse & Expand functionality to VuFind, initially based on finc/vufind-results-grouping.",
+    "authors": [
+        {
+            "name": "Cornelius Amzar",
+            "email": "cornelius.amzar@bsz-bw.de"
+        },
+        {
+            "name": "Dorian Merz",
+            "email": "merz@ub.uni-leipzig.de"
+        },
+        {
+            "name": "Alexander Purr",
+            "email": "purr@ub.uni-leipzig.de"
+        },
+        {
+            "name": "Robert Lange",
+            "email": "lange@ub.uni-leipzig.de"
+        },
+        {
+            "name": "Mario Trojan",
+            "email": "mario.trojan@uni-tuebingen.de"
+        },
+        {
+            "name": "Steven Lolong",
+            "email": "steven.lolong@uni-tuebingen.de"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "VuFindCollapseExpand\\": "src/"
+        }
+    },
+    "extra": {
+        "vufind": {
+            "themes": {
+                "res/theme": "vufind-collapse-expand"
+            }
         }
     },
     "config": {

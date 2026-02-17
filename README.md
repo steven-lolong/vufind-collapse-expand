@@ -70,8 +70,10 @@ Here is the step by step to enable this module:
 6. User Interface - HTML
     **Mixin**
 
-    Create a symlink or copy `res/theme` to `themes/collapse_expand_mixin` and register the mixin in your `theme.config.php`:
-    `'mixins' => ['collapse_expand_mixin']`
+    Add the mixin to your custom theme by referencing it in your `theme.config.php`:
+    `'mixins' => ['vufind-collapse-expand']`
+
+    The following points contain information about how to include certain snippets, you might as well also extend/override them in your own theme if necessary.
 
     **Checkbox**
 
@@ -105,7 +107,7 @@ Here is the step by step to enable this module:
     expand results = "Expand similar items"
     ```
 
-    Note: This might not be necessary if the mixing is included properly, unless you want to override the default display texts.
+    Note: This might not be necessary if the mixin is included properly, unless you want to override the default display texts.
 
 ## Enabling the VuFindCollapseExpand module along custom code modules
 
