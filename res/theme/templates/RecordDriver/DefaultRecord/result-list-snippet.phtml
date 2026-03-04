@@ -15,11 +15,17 @@
         $this->pgid = $pgid = 'accordion-' . $rand;
         $this->pid = $pid = 'panel-' . $rand . '-';
         ?>
-        <a class="btn result-link-label collapse-expand-toggle" data-toggle="collapse" href="#<?=$pgid?>">
-          <i class="result-link-icon fa fa-arrow-down"></i>
+        <button
+            class="btn result-link-label collapse-expand-toggle collapsed"
+            data-toggle="collapse"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            href="#<?=$pgid?>"
+        >
+          <?=$this->icon('collapse')?>
           <?=$this->transEsc('expand results')?>
           <span class="badge pull-right"><?=$subRecordsCount?></span>
-        </a>
+        </button>
         <?php /* END Button to show extended records */ ?>
 
         <?php /* BEGIN Show extended records */ ?>
