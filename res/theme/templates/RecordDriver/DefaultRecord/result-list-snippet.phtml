@@ -42,9 +42,6 @@
                   <?php if ($showCheckboxes): ?>
                       <?=$this->record($sub)->getCheckbox('', 'search-cart-form', $pid . $count)?>
                   <?php endif; ?>
-                  <div class="record-number">
-                      <?= $count+1 ?>
-                  </div>
                   <?=$this->record($sub)->getSearchResult('list')?>
                   <?php /* reuses logic from search/list-list.phtml -- END */ ?>
 
